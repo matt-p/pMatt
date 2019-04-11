@@ -1,0 +1,40 @@
+    <style>
+        .pd-lft-1 { padding-left: 1rem; }  
+        .pd-lft { padding-left: .5rem; }  
+        a { color:inherit; }
+        a:hover { color:inherit; text-decoration: none; } 
+        * { font-family: 'Cabin', sans-serif; font-weight: bold !important; } 
+	.shadow { background: #fff; box-shadow: 0 2px 6px 0 rgba(0,0,0,.12), inset 0 -1px 0 0 #dadce0; left: 0; right: 0; top: 0; transform: translate3d(0,0,0); transition: transform .4s,background .4s; z-index: 100; } 
+    </style>
+    <div class="shadow">
+    	<div class="d-flex align-items-center" style="padding-left:2rem; padding-right: 2rem; ">
+      		<a href="#" style="padding-top: 1rem; padding-bottom: 1rem; font-size:20px; font-size:2rem; font-family: 'Yellowtail', cursive;">reviewApp</a>
+      		<div class="d-flex justify-content-end" style="width:100%; font-size:16px;">
+			<div>
+			    <%= link_to "Home", root_path %>
+			    <%= link_to "About", static_pages_about_path, class: "pd-lft-1" %>	
+			    <%= link_to "Contact", static_pages_contact_path, class: "pd-lft-1" %>
+		            <%= link_to "Product", static_pages_product_path, class: "pd-lft-1" %>
+			    <span class="pd-lft-1"><a class="btn btn-primary" href="#">Login</a></span>
+			</div>
+      		</div>
+    	</div>
+    </div>
+    <div style="padding: 80px;">
+      <div class="row">
+        <div class="col-sm">
+          One of two columns
+        </div>
+        <div class="col-sm">
+          One of two columns
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          One of two columns
+        </div>
+        <div class="col-sm">
+          One of two columns
+        </div>
+      </div>
+    </div>
