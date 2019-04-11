@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  prodName: MyString
+  brand: MyString
+  avgCost: 1.5
+  category: MyString
+  relDate: 2019-04-11
+  description: MyText
+  prodPhoto: MyString
+
+two:
+  prodName: MyString
+  brand: MyString
+  avgCost: 1.5
+  category: MyString
+  relDate: 2019-04-11
+  description: MyText
+  prodPhoto: MyString

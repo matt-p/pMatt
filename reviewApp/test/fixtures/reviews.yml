@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reviewAuthor: MyString
+  prodRating: 1
+  prodReview: MyText
+  reviewDate: 2019-04-11
+  datePosted: 2019-04-11
+
+two:
+  reviewAuthor: MyString
+  prodRating: 1
+  prodReview: MyText
+  reviewDate: 2019-04-11
+  datePosted: 2019-04-11
