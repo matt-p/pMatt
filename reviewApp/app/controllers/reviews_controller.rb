@@ -40,7 +40,7 @@ end
 private
 
 def review_params
-	params.require(:review).permit(:reviewAuthor, :prodRating, :prodReview, :reviewDate, :datePosted)
+	params.require(:review).permit(:reviewAuthor, :prodRating, :prodReview, :reviewDate, :datePosted, :productId, :profileId)
 end
 
 end

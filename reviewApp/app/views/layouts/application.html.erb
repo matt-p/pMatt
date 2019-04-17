@@ -6,10 +6,39 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'customstyles' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+  <div class="shadow">
+    	<div class="d-flex align-items-center" style="padding-left:2rem; padding-right: 2rem; ">
+      		<a href="#" style="padding-top: 1rem; padding-bottom: 1rem; font-size:20px; font-size:2rem; font-family: 'Yellowtail', cursive;">reviewApp</a>
+      		<div class="d-flex justify-content-end" style="width:100%; font-size:16px;">
+			<div>
+			    <%= link_to "Home", root_path %>
+			    <%= link_to "About", static_pages_about_path, class: "pd-lft-1" %>	
+			    <%= link_to "Contact", static_pages_contact_path, class: "pd-lft-1" %>
+			    <% if current_user %>
+				<%= link_to "Products", products_path, class: "pd-lft-1" %>
+			    	<%= link_to "Reviews", reviews_path, class: "pd-lft-1" %>	
+			    	<%= link_to "Profiles", profiles_path, class: "pd-lft-1" %>
+				<span style="padding-left:2rem">Logged In As: <%= current_user.userid %></span>
+			    <% end %>
+			    <span class="pd-lft-1">
+			    <% if current_user %>
+				<%= link_to 'Log Out', session_path('active'), method: :delete, class: "btn btn-primary" %>
+			    <% else %>
+				<%= link_to 'Log in', new_session_path, class: "active_nav_link", class: "btn btn-primary" %>
+			    <% end %>
+			    </span>
+			</div>
+      		</div>
+    	</div>
+    </div>
+    <div style="padding: 5rem; min-height:calc(100vh - 200px)"><%= yield %></div>
+    <footer>
+        <p class="text-center">2019 © Copyright reviewApp</p>
+    </footer>
   </body>
 </html>

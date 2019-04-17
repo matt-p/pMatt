@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+before_action :authorize
 
 def index
 	@profiles=Profile.all
