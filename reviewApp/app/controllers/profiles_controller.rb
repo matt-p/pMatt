@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
-before_action :authorize
+
+before_action :authorize, :only => [ :index, :destory]
 
 def index
 	@profiles=Profile.all
@@ -11,6 +12,7 @@ end
 
 def create 
 	@profile=Profile.new(profile_params)
+	@profile.userId = current_user.id
 	@profile.save
 	redirect_to @profile
 end
@@ -35,13 +37,19 @@ def destroy
 end
 
 def show 
-	@profile=Profile.find(params[:id])
+	profile = Profile.find_by(userId: params[:id])
+
+	if !profile 
+		redirect_to new_profile_path
+	else 
+		@profile = profile
+	end
 end
 
 private
 
 def profile_params
-	params.require(:profile).permit(:fullName, :dob, :address, :city, :country, :userPhoto)
+	params.require(:profile).permit(:fullName, :dob, :address, :city, :country, :userPhoto, :userId)
 end
 
 end

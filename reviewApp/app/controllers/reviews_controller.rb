@@ -1,15 +1,26 @@
 class ReviewsController < ApplicationController
 
+before_action :authorize, :only => [ :new, :edit, :destory]
+
 def index
-	@reviews=Review.all
+	@reviews = Review.where('productId = ' + params[:productId])
 end
 
 def new
 	@review=Review.new
+	@profile=Profile.new
+	@product=Product.new
 end
 
 def create 
 	@review=Review.new(review_params)
+	@review.datePosted = Time.now
+	@review.reviewDate = Time.now
+
+	@reviewProfile = Profile.where('userId =' + current_user.id.to_s).first
+	@review['reviewAuthor'] = @reviewProfile['fullName']
+	@review['profileId'] = @reviewProfile['id']
+
 	@review.save
 	redirect_to @review
 end

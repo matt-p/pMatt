@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+before_action :authorize, :only => [ :new, :edit, :destory]
+
 def index
 	@products=Product.all
 end
@@ -35,6 +37,15 @@ end
 
 def show 
 	@product=Product.find(params[:id])
+end
+
+def search 
+	@products = if params[:term]
+		Product.where('prodName LIKE ? OR brand LIKE ? OR category LIKE ?', "%#{params[:term]}", "%#{params[:term]}", "%#{params[:term]}")
+	else 
+		Product.all
+		
+	end
 end
 
 private
